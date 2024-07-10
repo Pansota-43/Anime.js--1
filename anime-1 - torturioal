@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime.js Advanced Animations</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+      margin: 0;
+    }
+
+    .stagger-container {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-gap: 10px;
+    }
+
+    .stagger-item {
+      width: 100px;
+      height: 100px;
+      background-color: #ff6347;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      color: white;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="stagger-container">
+    <div class="stagger-item"><i class="fas fa-star"></i></div>
+    <div class="stagger-item"><i class="fas fa-heart"></i></div>
+    <div class="stagger-item"><i class="fas fa-moon"></i></div>
+    <div class="stagger-item"><i class="fas fa-sun"></i></div>
+    <div class="stagger-item"><i class="fas fa-leaf"></i></div>
+    <div class="stagger-item"><i class="fas fa-cloud"></i></div>
+    <div class="stagger-item"><i class="fas fa-bolt"></i></div>
+    <div class="stagger-item"><i class="fas fa-snowflake"></i></div>
+    <div class="stagger-item"><i class="fas fa-fire"></i></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    anime({
+      targets: '.stagger-item',
+      translateX: anime.stagger(10, {grid: [3, 3], from: 'center', axis: 'x'}),
+      translateY: anime.stagger(10, {grid: [3, 3], from: 'center', axis: 'y'}),
+      rotateZ: anime.stagger([0, 90], {grid: [3, 3], from: 'center', axis: 'x'}),
+      scale: anime.stagger([1, 1.5], {grid: [3, 3], from: 'center'}),
+      backgroundColor: anime.stagger(['#ff6347', '#ffcc00', '#66ccff', '#ff66cc', '#66ff66'], {grid: [3, 3], from: 'center'}),
+      delay: anime.stagger(200, {start: 500}),
+      easing: 'easeInOutQuad',
+      loop: true,
+      direction: 'alternate'
+    });
+  </script>
+</body>
+</html>

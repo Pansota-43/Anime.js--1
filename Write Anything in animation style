@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime.js SVG Line Drawing - Pansota-43</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+      margin: 0;
+    }
+
+    svg {
+      width: 800px;
+      height: 200px;
+    }
+
+    path {
+      fill: none;
+      stroke: #ff6347;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+</head>
+<body>
+  <svg viewBox="0 0 800 200">
+    <path id="P" d="M50 150 V50 Q50 30 70 30 H100 Q120 30 120 50 V70 Q120 90 100 90 H70" />
+    <path id="a" d="M160 130 Q160 90 200 90 Q240 90 240 130 Q240 170 200 170 Q160 170 160 130 Z" />
+    <path id="n" d="M270 150 V100 Q270 80 290 80 Q310 80 310 100 V150" />
+    <path id="s" d="M350 110 Q350 90 370 90 Q390 90 390 110 Q390 130 370 130 Q350 130 350 150 Q350 170 370 170 Q390 170 390 150" />
+    <path id="o" d="M430 150 Q430 110 470 110 Q510 110 510 150 Q510 190 470 190 Q430 190 430 150 Z" />
+    <path id="t" d="M550 150 V80 M530 80 H570" />
+    <path id="a2" d="M590 130 Q590 90 630 90 Q670 90 670 130 Q670 170 630 170 Q590 170 590 130 Z" />
+     
+  </svg>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    anime({
+      targets: '#P, #a, #n, #s, #o, #t, #a2, #dash, #four, #three',
+      strokeDashoffset: [anime.setDashoffset, 0],
+      easing: 'easeInOutSine',
+      duration: 2000,
+      delay: (el, i) => i * 200,
+      loop: true,
+      direction: 'alternate'
+    });
+  </script>
+</body>
+</html>
